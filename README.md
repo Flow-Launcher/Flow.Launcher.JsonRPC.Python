@@ -16,7 +16,7 @@
 
 ``` powershell
 >>> git clone https://github.com/Flow-Launcher/Flow.Launcher.JsonRPC.Python.git
->>> cd Flow. Launcher. JsonRPC. Python
+>>> cd Flow.Launcher.JsonRPC.Python
 >>> python setup.py install
 ```
 
