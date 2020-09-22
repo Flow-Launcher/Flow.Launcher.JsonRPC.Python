@@ -26,4 +26,4 @@ Flow Launcher supports Python by JsonRPC.
 
 This project is under the [MIT](./LICENSE) license.
 
-Some of the orignal codes from [JsonRPC/wox.py](https://github.com/Wox-launcher/Wox/blob/master/JsonRPC/wox.py) whic is under the [MIt](https://github.com/Wox-launcher/Wox/blob/master/LICENSE) license.
+Some of the orignal codes from [JsonRPC/wox.py](https://github.com/Wox-launcher/Wox/blob/master/JsonRPC/wox.py) whic is under the [MIT](https://github.com/Wox-launcher/Wox/blob/master/LICENSE) license.
