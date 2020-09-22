@@ -1,4 +1,4 @@
-# Flow. Launcher. JsonRPC. Python
+# Flow.Launcher.JsonRPC.Python
 
 ## JSON RPC
 
