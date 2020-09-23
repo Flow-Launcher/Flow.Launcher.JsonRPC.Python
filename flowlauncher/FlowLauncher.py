@@ -2,8 +2,9 @@
 
 
 import inspect
-import json
 import sys
+
+import demjson
 
 
 class FlowLauncher:
@@ -12,13 +13,14 @@ class FlowLauncher:
     """
 
     def __init__(self):
-        # TODO: try other way to get argv not using index
-        # with this, to test a plugin, it has to likes `python test.py {}`. Add `{}`.
-        # It is better with like this `python test.py`, when the input is empty.
-        rpc_request = json.loads(sys.argv[1])
+
+        rpc_request = {'method': 'query', 'parameters': ['']}
+        if len(sys.argv) > 1:
+            rpc_request = demjson.decode(sys.argv[1])
 
         # proxy is not working now
-        self.proxy = rpc_request.get("proxy", {})
+        # self.proxy = rpc_request.get("proxy", {})
+
         request_method_name = rpc_request.get("method", "query")
         request_parameters = rpc_request.get("parameters", [])
         methods = inspect.getmembers(self, predicate=inspect.ismethod)
@@ -27,23 +29,23 @@ class FlowLauncher:
         results = request_method(*request_parameters)
 
         if request_method_name in ["query", "context_menu"]:
-            print(json.dumps({"result": results}))
+            print(demjson.encode({"result": results}))
 
-    def query(self, param: str = ''):
+    def query(self, param: str = '') -> list:
         """
         sub class need to override this method
         """
         return []
 
-    def context_menu(self, data):
+    def context_menu(self, data) -> list:
         """
         optional context menu entries for a result
         """
         return []
 
-    def debug(self, msg):
+    def debug(self, msg: str):
         """
         alert msg
         """
-        print("DEBUG:{}".format(msg))
+        print(f"DEBUG:{msg}")
         sys.exit()

@@ -46,12 +46,9 @@ CLASSIFIERS = [
     "Topic :: Software Development :: Libraries :: Application Frameworks",
 ]
 
-try:
-    f = open("requirements.txt", "r")
-    REQUIRES = [i.strip() for i in f.readlines()]
-except:
-    print("'requirements.txt' not found!")
-    REQUIRES = []
+with open("requirements.txt", "r") as f:
+    REQUIRES = [package.strip() for package in f.readlines()]
+
 
 setup(
     name=NAME,

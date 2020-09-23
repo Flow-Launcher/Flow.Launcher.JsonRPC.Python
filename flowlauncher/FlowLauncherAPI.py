@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 
-import json
+import demjson
 
 
-class FlowLauncherAPI(object):
+class FlowLauncherAPI:
 
     @classmethod
-    def change_query(cls, query, requery=False):
+    def change_query(cls, query, requery: bool = False):
         """
         change flow launcher query
         """
-        print(json.dumps({
+        print(demjson.encode({
             "method": "Wox.ChangeQuery",
             "parameters": [query, requery]}))
 
@@ -19,7 +19,7 @@ class FlowLauncherAPI(object):
         """
         run shell commands
         """
-        print(json.dumps({
+        print(demjson.encode({
             "method": "Flow.Launcher.ShellRun",
             "parameters": [cmd]}))
 
@@ -28,7 +28,7 @@ class FlowLauncherAPI(object):
         """
         close flow launcher
         """
-        print(json.dumps({
+        print(demjson.encode({
             "method": "Flow.Launcher.CloseApp",
             "parameters": []}))
 
@@ -37,7 +37,7 @@ class FlowLauncherAPI(object):
         """
         hide flow launcher
         """
-        print(json.dumps({
+        print(demjson.encode({
             "method": "Flow.Launcher.HideApp",
             "parameters": []}))
 
@@ -46,7 +46,7 @@ class FlowLauncherAPI(object):
         """
         show flow launcher
         """
-        print(json.dumps({
+        print(demjson.encode({
             "method": "Flow.Launcher.ShowApp",
             "parameters": []}))
 
@@ -55,7 +55,7 @@ class FlowLauncherAPI(object):
         """
         show messagebox
         """
-        print(json.dumps({
+        print(demjson.encode({
             "method": "Flow.Launcher.ShowMsg",
             "parameters": [title, sub_title, ico_path]}))
 
@@ -64,7 +64,7 @@ class FlowLauncherAPI(object):
         """
         open setting dialog
         """
-        print(json.dumps({
+        print(demjson.encode({
             "method": "Flow.Launcher.OpenSettingDialog",
             "parameters": []}))
 
@@ -73,7 +73,7 @@ class FlowLauncherAPI(object):
         """
         start loading animation in flow launcher
         """
-        print(json.dumps({
+        print(demjson.encode({
             "method": "Flow.Launcher.StartLoadingBar",
             "parameters": []}))
 
@@ -82,7 +82,7 @@ class FlowLauncherAPI(object):
         """
         stop loading animation in flow launcher
         """
-        print(json.dumps({
+        print(demjson.encode({
             "method": "Flow.Launcher.StopLoadingBar",
             "parameters": []}))
 
@@ -91,6 +91,6 @@ class FlowLauncherAPI(object):
         """
         reload all flow launcher plugins
         """
-        print(json.dumps({
+        print(demjson.encode({
             "method": "Flow.Launcher.ReloadPlugins",
             "parameters": []}))
