@@ -10,4 +10,4 @@ before_install:
 
 script:
     - echo 'building test'
-    - ./test.sh
+    - sh ./test.sh
