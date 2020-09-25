@@ -4,9 +4,27 @@
 
 Flow Launcher supports Python by JsonRPC.
 
-## JSON RPC
+## JSON-RPC
 
-<!-- A picture from wox.one -->
+> [JSON-RPC](https://en.wikipedia.org/wiki/JSON-RPC) is a remote procedure call protocol encoded in JSON.
+
+In Flow Launcher, we use JSON-RPC as a **local** procedure call protocol to bind Flow and other program languages.
+
+So we need to build a **common API** between Flow and Plugin.
+
+![JsonRPC](./assets/jsonrpc.png)
+
+### Example
+
+- `-->` denotes data sent to FLow.
+- `<--` denotes data coming from Flow.
+
+```json
+--> {"method": "query", "parameters": [""]}
+<-- {"Title": "title", "SubTitle": "sub title", "IconPath": "favicon.ico"}
+```
+
+<!-- TODO: try to add some other examples -->
 
 ## Installation
 
@@ -23,6 +41,8 @@ Flow Launcher supports Python by JsonRPC.
 >>> cd Flow.Launcher.JsonRPC.Python
 >>> python setup.py install
 ```
+
+<!-- TODO: update Example Plugin (HellowWorldPython) for this plugin -->
 
 ### License
 

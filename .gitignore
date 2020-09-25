@@ -44,3 +44,8 @@ coverage.xml
 # vscode
 .history
 .vscode
+
+
+# ppt
+*.ppt
+*.pptx
