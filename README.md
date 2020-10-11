@@ -1,1 +1,51 @@
 # Flow.Launcher.JsonRPC.Python
+
+[![Build Status](https://travis-ci.org/Zeroto521/Flow.Launcher.JsonRPC.Python.svg?branch=master)](https://travis-ci.org/Zeroto521/Flow.Launcher.JsonRPC.Python)
+
+Flow Launcher supports Python by JsonRPC.
+
+## JSON-RPC
+
+> [JSON-RPC](https://en.wikipedia.org/wiki/JSON-RPC) is a remote procedure call protocol encoded in JSON.
+
+In Flow Launcher, we use JSON-RPC as a **local** procedure call protocol to bind Flow and other program languages.
+
+So we need to build a **common API** between Flow and Plugin.
+
+![JsonRPC](./assets/jsonrpc.png)
+
+### Example
+
+- `-->` denotes data sent to FLow.
+- `<--` denotes data coming from Flow.
+
+```json
+--> {"method": "query", "parameters": [""]}
+<-- {"Title": "title", "SubTitle": "sub title", "IconPath": "favicon.ico"}
+```
+
+<!-- TODO: try to add some other examples -->
+
+## Installation
+
+### Using `pip`
+
+``` powershell
+>>> pip install git+https://github.com/Flow-Launcher/Flow.Launcher.JsonRPC.Python.git
+```
+
+### Using `git`
+
+``` powershell
+>>> git clone https://github.com/Flow-Launcher/Flow.Launcher.JsonRPC.Python.git
+>>> cd Flow.Launcher.JsonRPC.Python
+>>> python setup.py install
+```
+
+<!-- TODO: update Example Plugin (HellowWorldPython) for this plugin -->
+
+### License
+
+This project is under the [MIT](./LICENSE) license.
+
+Some of the orignal codes from [JsonRPC/wox.py](https://github.com/Wox-launcher/Wox/blob/master/JsonRPC/wox.py) which is under the [MIT](https://github.com/Wox-launcher/Wox/blob/master/LICENSE) license.
