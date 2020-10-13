@@ -23,12 +23,13 @@ class FlowLauncher:
         # self.proxy = self.rpc_request.get("proxy", {})
 
         request_method_name = self.rpc_request.get("method", "query")
+        request_parameters = self.rpc_request.get("parameters", [])
 
-        if request_method_name in ["query", "context_menu"]:
-            request_parameters = self.rpc_request.get("parameters", [])
-            methods = inspect.getmembers(self, predicate=inspect.ismethod)
-            request_method = dict(methods)[request_method_name]
-            results = request_method(*request_parameters)
+        methods = inspect.getmembers(self, predicate=inspect.ismethod)
+        request_method = dict(methods)[request_method_name]
+        results = request_method(*request_parameters)
+
+        if request_method_name in ("query", "context_menu"):
             print(demjson.encode({"result": results}))
 
     def query(self, param: str = '') -> list:
