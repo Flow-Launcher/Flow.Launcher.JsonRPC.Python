@@ -19,7 +19,7 @@ class FlowLauncher:
         if len(sys.argv) > 1:  # from input to get jsonrpc
             self.rpc_request = demjson.decode(sys.argv[1])
 
-        # proxy is not working
+        # proxy is not working now
         # self.proxy = self.rpc_request.get("proxy", {})
 
         request_method_name = self.rpc_request.get("method", "query")
