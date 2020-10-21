@@ -1,2 +1,10 @@
 include MANIFEST.in
+include setup.py
 include README.md
+include LICENSE
+
+
+include assets/*.png
+
+
+prune assets/*.pptx
