@@ -32,7 +32,6 @@ CLASSIFIERS = [
     "Natural Language :: English",
 
     "Operating System :: Microsoft :: Windows",
-    "Operating System :: Microsoft :: Windows :: Windows 10",
 
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
