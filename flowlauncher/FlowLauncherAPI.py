@@ -11,7 +11,7 @@ class FlowLauncherAPI:
         change flow launcher query
         """
         print(demjson.encode({
-            "method": "Wox.ChangeQuery",
+            "method": "Flow.Launcher.ChangeQuery",
             "parameters": [query, requery]}))
 
     @classmethod
