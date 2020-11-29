@@ -1,6 +1,8 @@
 # Flow.Launcher.JsonRPC.Python
 
-[![Build Status](https://travis-ci.org/Zeroto521/Flow.Launcher.JsonRPC.Python.svg?branch=master)](https://travis-ci.org/Zeroto521/Flow.Launcher.JsonRPC.Python)
+[![Build Status](https://img.shields.io/travis/Zeroto521/Flow.Launcher.JsonRPC.Python/master?style=for-the-badge)](https://travis-ci.org/Zeroto521/Flow.Launcher.JsonRPC.Python)
+[![](https://img.shields.io/pypi/v/flowlauncher.svg?style=for-the-badge)](https://pypi.org/project/flowlauncher/)
+[![PyPI pyversions](https://img.shields.io/pypi/pyversions/flowlauncher?style=for-the-badge)](https://pypi.org/project/flowlauncher/)
 
 Flow Launcher supports Python by JsonRPC.
 
