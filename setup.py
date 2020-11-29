@@ -23,7 +23,7 @@ LICENSE = __import__(NAME).__license__
 
 PLATFORMS = ["Windows"]
 CLASSIFIERS = [
-    "Development Status :: 3 - Alphaa",
+    "Development Status :: 3 - Alpha",
 
     "Intended Audience :: Developers",
 
