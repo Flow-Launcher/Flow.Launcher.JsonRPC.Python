@@ -23,7 +23,7 @@ LICENSE = __import__(NAME).__license__
 
 PLATFORMS = ["Windows"]
 CLASSIFIERS = [
-    "Development Status :: 3 - Alphaa",
+    "Development Status :: 3 - Alpha",
 
     "Intended Audience :: Developers",
 
@@ -65,6 +65,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     download_url=DOWNLOAD_URL,
+    install_requires=REQUIRES,
     requires=REQUIRES,
     classifiers=CLASSIFIERS
 )
