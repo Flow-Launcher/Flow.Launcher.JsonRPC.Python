@@ -33,7 +33,7 @@ class FlowLauncher:
             response = {"result": results}
         else:
             response = results
-print(demjson.encode(response))
+        print(demjson.encode(response))
 
     def query(self, param: str = '') -> list:
         """
