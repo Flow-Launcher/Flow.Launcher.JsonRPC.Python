@@ -30,7 +30,10 @@ class FlowLauncher:
         results = request_method(*request_parameters)
 
         if request_method_name in ("query", "context_menu"):
-            print(demjson.encode({"result": results}))
+            response = {"result": results}
+        else:
+            response = results
+        print(demjson.encode(response))
 
     def query(self, param: str = '') -> list:
         """
