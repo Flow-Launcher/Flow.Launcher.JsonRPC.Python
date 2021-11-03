@@ -52,4 +52,4 @@ class FlowLauncher:
         """
         alert msg
         """
-        self.debugMessage += msg
+        self.debugMessage = msg
