@@ -16,6 +16,7 @@ class FlowLauncher:
 
         # defalut jsonrpc
         self.rpc_request = {'method': 'query', 'parameters': ['']}
+        self.debugMessage = ""
         if len(sys.argv) > 1:  # from input to get jsonrpc
             self.rpc_request = demjson.decode(sys.argv[1])
 
@@ -30,7 +31,10 @@ class FlowLauncher:
         results = request_method(*request_parameters)
 
         if request_method_name in ("query", "context_menu"):
-            print(demjson.encode({"result": results}))
+            print(demjson.encode({
+                "result": results,
+                "debugMessage": self.debugMessage
+            }))
 
     def query(self, param: str = '') -> list:
         """
@@ -48,5 +52,4 @@ class FlowLauncher:
         """
         alert msg
         """
-        print(f"DEBUG:{msg}")
-        sys.exit()
+        self.debugMessage = msg
