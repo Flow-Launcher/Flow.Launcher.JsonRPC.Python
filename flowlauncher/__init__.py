@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from .FlowLauncher import FlowLauncher
-from .FlowLauncherAPI import FlowLauncherAPI
+from .FlowLauncher import FlowLauncher  # noqa
+from .FlowLauncherAPI import FlowLauncherAPI  # noqa
 
 
 __version__ = '0.1.1'
