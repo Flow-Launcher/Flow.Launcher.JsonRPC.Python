@@ -1,0 +1,92 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Fetch all history for all tags and branches
+
+      - uses: actions/setup-python@v2
+
+      - name: Install Dependencies
+        run: python -m pip install --upgrade pip setuptools wheel
+
+      - name: Build sdist
+        run: make dist
+
+      - name: Get Source Tarball Name
+        id: tar
+        run: |
+          export type=tar
+          export file=$(ls dist/ | grep ${type})
+          echo "::set-output name=file::${file}"
+
+      - name: Get Binary Wheel Name
+        id: whl
+        run: |
+          export type=whl
+          export file=$(ls dist/ | grep ${type})
+          echo "::set-output name=file::${file}"
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: release
+          path: dist/
+
+    outputs:
+      tar: ${{ steps.tar.outputs.file }}
+      whl: ${{ steps.whl.outputs.file }}
+
+  publish-to-github:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Fetch all history for all tags and branches
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: release
+          path: dist/
+
+      - name: List dist/ Folder
+        run: ls dist/ -l
+
+      - name: Upload Release Asset to GitHub
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/${{ needs.build.outputs.tar }}
+
+  publish-to-pypi:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Fetch all history for all tags and branches
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: release
+          path: dist/
+
+      - name: List dist/ Folder
+        run: ls dist/ -l
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@v1.4.2
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
+          verbose: true
