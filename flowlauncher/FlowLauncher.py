@@ -4,7 +4,7 @@
 import inspect
 import sys
 
-import demjson
+import demjson3
 
 
 class FlowLauncher:
@@ -18,7 +18,7 @@ class FlowLauncher:
         self.rpc_request = {'method': 'query', 'parameters': ['']}
         self.debugMessage = ""
         if len(sys.argv) > 1:  # from input to get jsonrpc
-            self.rpc_request = demjson.decode(sys.argv[1])
+            self.rpc_request = demjson3.decode(sys.argv[1])
 
         # proxy is not working now
         # self.proxy = self.rpc_request.get("proxy", {})
@@ -31,7 +31,7 @@ class FlowLauncher:
         results = request_method(*request_parameters)
 
         if request_method_name in ("query", "context_menu"):
-            print(demjson.encode({
+            print(demjson3.encode({
                 "result": results,
                 "debugMessage": self.debugMessage
             }))
