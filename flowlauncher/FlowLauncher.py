@@ -4,7 +4,6 @@
 import inspect
 import sys
 
-import demjson3
 from json import loads, dumps
 
 
