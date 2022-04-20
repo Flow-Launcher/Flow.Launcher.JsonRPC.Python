@@ -53,5 +53,3 @@ class FlowLauncher:
         alert msg
         """
         self.debugMessage = msg
-        print(f"DEBUG:{msg}")
-        sys.exit()
