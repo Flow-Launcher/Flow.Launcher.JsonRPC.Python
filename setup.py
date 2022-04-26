@@ -62,7 +62,5 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     download_url=DOWNLOAD_URL,
-    install_requires=REQUIRES,
-    requires=REQUIRES,
     classifiers=CLASSIFIERS
 )
