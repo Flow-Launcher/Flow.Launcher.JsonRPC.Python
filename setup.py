@@ -45,9 +45,6 @@ CLASSIFIERS = [
     "Topic :: Software Development :: Libraries :: Application Frameworks",
 ]
 
-with open("requirements.txt", "r") as f:
-    REQUIRES = [package.strip() for package in f.readlines()]
-
 
 setup(
     name=NAME,
