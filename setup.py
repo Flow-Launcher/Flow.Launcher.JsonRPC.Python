@@ -45,9 +45,6 @@ CLASSIFIERS = [
     "Topic :: Software Development :: Libraries :: Application Frameworks",
 ]
 
-with open("requirements.txt", "r") as f:
-    REQUIRES = [package.strip() for package in f.readlines()]
-
 
 setup(
     name=NAME,
@@ -66,7 +63,5 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     download_url=DOWNLOAD_URL,
-    install_requires=REQUIRES,
-    requires=REQUIRES,
     classifiers=CLASSIFIERS,
 )
