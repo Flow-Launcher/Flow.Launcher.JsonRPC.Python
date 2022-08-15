@@ -3,13 +3,13 @@
 
 from setuptools import find_packages, setup
 
+from versioneer import get_cmdclass, get_version
+
 
 NAME = "flowlauncher"
 
 SHORT_DESCRIPTION = __import__(NAME).__short_description__
 LONG_DESCRIPTION = open("README.md", "r").read()
-
-VERSION = __import__(NAME).__version__
 
 AUTHOR = "Flow-Launcher"
 AUTHOR_EMAIL = "Zeroto521@gmail.com"
@@ -48,7 +48,8 @@ CLASSIFIERS = [
 
 setup(
     name=NAME,
-    version=VERSION,
+    version=get_version(),
+    cmdclass=get_cmdclass(),
     author=AUTHOR,
     author_email=AUTHOR_EMAIL,
     maintainer=MAINTAINER,
@@ -62,5 +63,5 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     download_url=DOWNLOAD_URL,
-    classifiers=CLASSIFIERS
+    classifiers=CLASSIFIERS,
 )

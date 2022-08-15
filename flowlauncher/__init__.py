@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 
-from .FlowLauncher import FlowLauncher
-from .FlowLauncherAPI import FlowLauncherAPI
+from ._version import get_versions
+from .FlowLauncher import FlowLauncher  # noqa
+from .FlowLauncherAPI import FlowLauncherAPI  # noqa
 
+__version__ = get_versions()["version"]
+del get_versions
 
-__version__ = '0.1.1'
 __license__ = 'MIT'
 __short_description__ = 'Flow Launcher supports Python by JsonRPC.'

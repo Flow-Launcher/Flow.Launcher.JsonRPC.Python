@@ -4,3 +4,5 @@ include README.md
 include LICENSE
 
 include assets/*.png
+include versioneer.py
+include flowlauncher/_version.py
