@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
 
-import inspect
 import sys
-from json import loads, dumps
+from inspect import getmembers, ismethod
+
+from RPC import RPC
 
 
 class FlowLauncher:
@@ -12,33 +13,22 @@ class FlowLauncher:
     """
 
     def __init__(self):
-
-        # defalut jsonrpc
-        self.rpc_request = {'method': 'query', 'parameters': ['']}
-        self.debugMessage = ""
-        
         if len(sys.argv) > 1:
-            
             # Gets JSON-RPC from Flow Launcher process.
-            self.rpc_request = loads(sys.argv[1])
+            self.rpc_request = RPC.from_string(sys.argv[1])
+        else:
+            # defalut JSON-RPC
+            self.rpc_request = RPC()
 
-        # proxy is not working now
-        # self.proxy = self.rpc_request.get("proxy", {})
+        # Run 'method'
+        method_name = getmembers(self, predicate=ismethod)
+        request_method = dict(method_name)[self.rpc_request.method]
+        self.rpc_request.result = request_method(*self.rpc_request.parameters)
 
-        request_method_name = self.rpc_request.get("method", "query")
-        request_parameters = self.rpc_request.get("parameters", [])
+        if self.rpc_request.method in {"query", "context_menu"}:
+            self.rpc_request.to_string()
 
-        methods = inspect.getmembers(self, predicate=inspect.ismethod)
-        request_method = dict(methods)[request_method_name]
-        results = request_method(*request_parameters)
-
-        if request_method_name in ("query", "context_menu"):
-            print(dumps({
-                "result": results,
-                "debugMessage": self.debugMessage
-            }))
-
-    def query(self, param: str = '') -> list:
+    def query(self, param: str = "") -> list:
         """
         sub class need to override this method
         """
