@@ -2,7 +2,6 @@ include MANIFEST.in
 include setup.py
 include README.md
 include LICENSE
-include requirements.txt
 
 include assets/*.png
 include versioneer.py
