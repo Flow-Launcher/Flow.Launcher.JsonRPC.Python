@@ -22,7 +22,10 @@ jobs:
         run: python -m pip install --upgrade pip setuptools wheel
 
       - name: Build sdist
-        run: make dist
+        run: |
+          python setup.py sdist bdist_wheel
+          twine check --strict dist/*
+          ls -l dist
 
       - name: Get Source Tarball Name
         id: tar
