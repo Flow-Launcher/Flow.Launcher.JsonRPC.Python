@@ -2,6 +2,48 @@
 requires = ["setuptools", "wheel"]
 
 
+[project]
+name = "flowlauncher"
+description = "Flow Launcher supports Python by JsonRPC"
+readme = "README.md"
+requires-python = ">=3.7"
+keywords = ["Window", "Python", "JSON-RPC", "plugin", "extension"]
+license = { text = "MIT" }
+authors = [{ name = "@Zeroto521", email = "Zeroto521@gmail.com" }]
+maintainers = [{ name = "Flow Launcher Team" }]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+
+    "Intended Audience :: Developers",
+
+    "License :: OSI Approved :: MIT License",
+
+    "Operating System :: Microsoft :: Windows",
+
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+]
+dynamic = ["version"]
+
+
+[project.urls]
+Home = "https://www.flowlauncher.com"
+Repository = "https://github.com/Flow-Launcher/Flow.Launcher.JsonRPC.Python"
+
+
+[tool.setuptools]
+packages = ["flowlauncher"]
+
+
 [tool.versioneer]
 VCS = "git"
 style = "pep440-old"
