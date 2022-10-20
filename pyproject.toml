@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+
+
 [tool.versioneer]
 VCS = "git"
 style = "pep440-old"
