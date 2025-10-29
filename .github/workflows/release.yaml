@@ -58,7 +58,7 @@ jobs:
         with:
           fetch-depth: 0 # Fetch all history for all tags and branches
 
-      - uses: actions/download-artifact@v5
+      - uses: actions/download-artifact@v6
         with:
           name: release
           path: dist/
@@ -82,7 +82,7 @@ jobs:
         with:
           fetch-depth: 0 # Fetch all history for all tags and branches
 
-      - uses: actions/download-artifact@v5
+      - uses: actions/download-artifact@v6
         with:
           name: release
           path: dist/
